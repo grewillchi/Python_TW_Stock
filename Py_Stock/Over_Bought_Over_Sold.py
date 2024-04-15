@@ -72,10 +72,11 @@ def compare_Buy_Sell(df, Bool, text, date, normal):
 
   return msg
 
+# 查詢個股買賣超
 def Self_Buy_Sell(df, date):
   # df:引入 DataFrame、date:日期
 
-  filt_ID = ['2421','1609','6806','1101','5306','3037','2634','4107','3163','2313','5469','3712','2455']
+  filt_ID = ['2421','1609','6806','1101','5306','3037','2634','4107','2313','5469','3712','2455']
 
   df = df.sort_values(by='證券代號', ascending=True)
 
@@ -85,7 +86,7 @@ def Self_Buy_Sell(df, date):
   Buy_Sell2 = pd.Series(df.loc[df['證券代號'].isin(filt_ID)]['投信買賣超'])
   Buy_Sell3 = pd.Series(df.loc[df['證券代號'].isin(filt_ID)]['三大法人買賣超'])
 
-  msg = date + '\n\t代號'.center(4) + '\t外資\t投信\t三大法人\t名稱'
+  msg = date + '集中市場\n\t代號'.center(4) + '\t外資\t投信\t三大法人\t名稱'
 
   for i,j,k,l,m in zip(ID, Name, Buy_Sell1, Buy_Sell2, Buy_Sell3):
     msg = msg + '\n' + str(i).center(4) + '\t' + str(k).center(6) + '\t' + '\t' + str(l).center(6) + '\t' + str(m).center(6) + str(j).center(4)
