@@ -182,8 +182,46 @@ if __name__ == "__main__":
       # LineNotify(token, msg)
       for token_i in token:
         LineNotify(token_i, msg)
-
+      
     msg = Self_Buy_Sell(df, res.json()['date'])
+
+    for token_i in token:
+      LineNotify(token_i, msg)
+
+# 櫃買中心買賣超
+cDay = 0
+date_stock = str(int((datetime.datetime.today()+datetime.timedelta(days=cDay)).strftime('%Y'))-1911) + (datetime.datetime.today()+datetime.timedelta(days=cDay)).strftime('/%m/%d')
+print(date_stock)
+# GET方法，網址夾帶日期
+url = 'https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php?t=D&d=' + date_stock
+
+res = requests.get(url, headers = header)
+
+while(res.json()['iTotalRecords']==0):
+  print(cDay)
+  cDay -= 1
+  date_stock = str(int((datetime.datetime.today()+datetime.timedelta(days=cDay)).strftime('%Y'))-1911) + (datetime.datetime.today()+datetime.timedelta(days=cDay)).strftime('/%m/%d')
+  url = 'https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php?t=D&d=' + date_stock
+  res = requests.get(url, headers = header)
+
+# 想查的股票代號
+find_stock = ['3163', '3611']
+
+msg = '\n櫃買中心買賣超\n代號　名稱　外資 投信\n'
+
+for i in res.json()['aaData']:
+  if i[0] in find_stock:
+    msg = msg + i[0] + ' ' + i[1] + ' ' + str(int(i[10].replace(',',''))/1000) + ' ' + str(int(i[13].replace(',',''))/1000) + '\n'
+
+# Line Notify 練習
+if __name__ == "__main__":
+  #從LINE Notify取得的權杖(token)
+  #token = '5WeUjy8radM8DvL5Yd1uz3f57Jdhz3R1nmhdufCKwtp' # 私人群組
+  #token = 'PhcFyLF9E8x4gWt60SEK8fdW9LN9paO4JDDY6YdjIWb' # 自己的
+  token = [ 'PhcFyLF9E8x4gWt60SEK8fdW9LN9paO4JDDY6YdjIWb'
+        ,'5WeUjy8radM8DvL5Yd1uz3f57Jdhz3R1nmhdufCKwtp']
+
+  if res.json()['iTotalRecords']!='0':
 
     for token_i in token:
       LineNotify(token_i, msg)
