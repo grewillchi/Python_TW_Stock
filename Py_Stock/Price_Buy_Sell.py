@@ -47,7 +47,8 @@ msg = res.json()['date'] + '\n集中市場買賣超金額'
 # Line Notify 練習
 if __name__ == "__main__":
   #從LINE Notify取得的權杖(token)
-  token = [os.getenv('LINE_USER_ID')]
+  # token = [os.getenv('LINE_USER_ID')]
+    token = [ '5WeUjy8radM8DvL5Yd1uz3f57Jdhz3R1nmhdufCKwtp']
 
   if res.json()['stat']=='OK':
 
