@@ -16,6 +16,17 @@ header = {
     # 用什麼方式執行(Mozilla、AppleWebKit、Chrome)
     'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36 Edg/102.0.1245.39'}
 
+def LineNotify(token, msg):
+    headers = {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    params = {
+        "message": msg
+    }
+    # image = {'imageFile': file}
+    r = requests.post("https://notify-api.line.me/api/notify", headers=headers, params=params)#, files = image)
+
 cDay = 0
 
 # 爬取三大法人買賣超金額
