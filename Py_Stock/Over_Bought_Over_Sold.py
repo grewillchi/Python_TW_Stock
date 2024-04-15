@@ -1,6 +1,7 @@
 #引入使用套件
 import requests
 import json
+import os
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
