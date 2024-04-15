@@ -125,11 +125,6 @@ while(res.json()['total']==0):
   url = 'https://www.twse.com.tw/rwd/zh/fund/T86?date=' + (datetime.datetime.today()+datetime.timedelta(days=cDay)).strftime('%Y%m%d') + '&selectType=ALLBUT0999&response=json'
   res = requests.get(url, headers = header)
 
-# # 顯示時間以確認是否為當日
-# print(cDay)
-# print((datetime.datetime.today()+datetime.timedelta(days=cDay)).strftime('%Y%m%d'))
-# print(res.json()['total'])
-# print(res.json()['date'])
 res.json()['stat']
 
 # 將欄內資料存入 data
@@ -160,10 +155,7 @@ df = df.rename(columns={'外陸資買賣超股數(不含外資自營商)':Text[0
 # Line Notify 練習
 if __name__ == "__main__":
   #從LINE Notify取得的權杖(token)
-  #token = '5WeUjy8radM8DvL5Yd1uz3f57Jdhz3R1nmhdufCKwtp' # 私人群組
-  #token = 'PhcFyLF9E8x4gWt60SEK8fdW9LN9paO4JDDY6YdjIWb' # 自己的
-  token = [ 'PhcFyLF9E8x4gWt60SEK8fdW9LN9paO4JDDY6YdjIWb'
-        ,'5WeUjy8radM8DvL5Yd1uz3f57Jdhz3R1nmhdufCKwtp']
+  token = [os.getenv('LINE_USER_ID')]
 
   if res.json()['stat']=='OK':
 
@@ -217,10 +209,7 @@ for i in res.json()['aaData']:
 # Line Notify 練習
 if __name__ == "__main__":
   #從LINE Notify取得的權杖(token)
-  #token = '5WeUjy8radM8DvL5Yd1uz3f57Jdhz3R1nmhdufCKwtp' # 私人群組
-  #token = 'PhcFyLF9E8x4gWt60SEK8fdW9LN9paO4JDDY6YdjIWb' # 自己的
-  token = [ 'PhcFyLF9E8x4gWt60SEK8fdW9LN9paO4JDDY6YdjIWb'
-        ,'5WeUjy8radM8DvL5Yd1uz3f57Jdhz3R1nmhdufCKwtp']
+  token = [os.getenv('LINE_USER_ID')]
 
   if res.json()['iTotalRecords']!='0':
 
