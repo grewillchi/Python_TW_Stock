@@ -4,6 +4,13 @@ import requests
 import json
 import datetime
 
+# 不讓伺服器當作機器人
+header = {
+    # 用 text/html 方法，以 UTF-8 格式解析
+    'content-type' : 'text/html; charset=UTF-8',
+    # 用什麼方式執行(Mozilla、AppleWebKit、Chrome)
+    'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36 Edg/102.0.1245.39',}
+
 cDay = 0
 
 # 爬取三大法人買賣超金額
