@@ -10,7 +10,7 @@ on:
   #   branches: [ "master" ]
 
   schedule:
-    - cron:  '10 7 * * 1-5'
+    - cron:  '4 7 * * 1-5'
   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
