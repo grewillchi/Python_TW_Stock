@@ -5,6 +5,10 @@ import os
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
+from linebot.models import TextSendMessage
+from linebot import (
+    LineBotApi, WebhookHandler
+)
 
 # 三大法人買賣超金額
 # https://www.twse.com.tw/rwd/zh/fund/BFI82U?type=day&dayDate=20230712
