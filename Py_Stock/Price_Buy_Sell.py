@@ -4,6 +4,10 @@ import os
 import requests
 import json
 import datetime
+from linebot.models import TextSendMessage
+from linebot import (
+    LineBotApi, WebhookHandler
+)
 
 # 不讓伺服器當作機器人
 header = {
