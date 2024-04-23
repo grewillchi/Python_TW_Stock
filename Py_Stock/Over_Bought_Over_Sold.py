@@ -205,7 +205,7 @@ while(res.json()['iTotalRecords']==0):
   res = requests.get(url, headers = header)
 
 # 想查的股票代號
-find_stock = ['3163', '3611']
+find_stock = ['3163', '3611','6146']
 
 msg = '\n櫃買中心買賣超\n代號　名稱　外資 投信\n'
 
