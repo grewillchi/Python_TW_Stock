@@ -223,4 +223,4 @@ if __name__ == "__main__":
   if res.json()['iTotalRecords']!='0':
 
     for token_i in token:
-      LineNotify(token_i, msg)
+      LineNotify(os.getenv('LINE_USER_ID'), msg) # 個人單獨的 Line Notify
