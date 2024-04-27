@@ -160,9 +160,7 @@ df = df.rename(columns={'外陸資買賣超股數(不含外資自營商)':Text[0
 # Line Notify 練習
 if __name__ == "__main__":
   #從LINE Notify取得的權杖(token)
-  # token = [os.getenv('LINE_USER_ID')]
-  token = [ 'PhcFyLF9E8x4gWt60SEK8fdW9LN9paO4JDDY6YdjIWb'
-        ,'5WeUjy8radM8DvL5Yd1uz3f57Jdhz3R1nmhdufCKwtp']
+  token = [os.getenv('LINE_USER_ID')]
 
   if res.json()['stat']=='OK':
 
@@ -216,11 +214,9 @@ for i in res.json()['aaData']:
 # Line Notify 練習
 if __name__ == "__main__":
   #從LINE Notify取得的權杖(token)
-  # token = [os.getenv('LINE_USER_ID')]
-  token = [ 'PhcFyLF9E8x4gWt60SEK8fdW9LN9paO4JDDY6YdjIWb'
-        ,'5WeUjy8radM8DvL5Yd1uz3f57Jdhz3R1nmhdufCKwtp']
+  token = [os.getenv('LINE_USER_ID')]
 
   if res.json()['iTotalRecords']!='0':
 
     for token_i in token:
-      LineNotify(os.getenv('LINE_USER_ID'), msg) # 個人單獨的 Line Notify
+      LineNotify(token, msg) # 個人單獨的 Line Notify
