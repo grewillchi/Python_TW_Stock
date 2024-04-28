@@ -59,6 +59,4 @@ if __name__ == "__main__":
       for j in range(1,4):
         print(res.json()['fields'][j],":",format(int(res.json()['data'][i][j].replace(',',''))/100000000,'.2f'),"億")
         msg = msg + res.json()['fields'][j] + "：" + str(format(int(res.json()['data'][i][j].replace(',',''))/100000000,'.2f')) + " 億" + '\n'
-
-    for token_i in token:
-      LineNotify(token_i, msg)
+    LineNotify(os.getenv('LINE_USER_ID'), msg)
