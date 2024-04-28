@@ -182,9 +182,7 @@ if __name__ == "__main__":
         LineNotify(token_i, msg)
       
     msg = Self_Buy_Sell(df, res.json()['date'])
-
-    for token_i in token:
-      LineNotify(token_i, msg)
+    LineNotify(os.getenv('LINE_USER_ID'), msg)
 
 # 櫃買中心買賣超
 cDay = 0
@@ -217,6 +215,4 @@ if __name__ == "__main__":
   token = [os.getenv('LINE_USER_ID')]
 
   if res.json()['iTotalRecords']!='0':
-
-    for token_i in token:
-      LineNotify(token, msg) # 個人單獨的 Line Notify
+    LineNotify(os.getenv('LINE_USER_ID'), msg) # 個人單獨的 Line Notify
