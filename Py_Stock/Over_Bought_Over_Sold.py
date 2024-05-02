@@ -81,7 +81,7 @@ def compare_Buy_Sell(df, Bool, text, date, normal):
 def Self_Buy_Sell(df, date):
   # df:引入 DataFrame、date:日期
 
-  filt_ID = ['2421','1609','6806','1101','5306','3037','2634','4107','2313','5469','3712','2455','2504']
+  filt_ID = ['2421','1609','6806','1101','5306','3037','2634','4107','2313','5469','3712','2455','2504','3005']
 
   df = df.sort_values(by='證券代號', ascending=True)
 
