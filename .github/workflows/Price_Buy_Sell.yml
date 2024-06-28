@@ -38,3 +38,4 @@ jobs:
       run: python ./Py_Stock/Price_Buy_Sell.py
       env:
         LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        LINE_GROUP_TEST: ${{ secrets.LINE_GROUP_TEST }}
