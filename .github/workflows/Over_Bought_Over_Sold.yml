@@ -38,3 +38,4 @@ jobs:
       run: python ./Py_Stock/Over_Bought_Over_Sold.py
       env:
         LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        LINE_GROUP_TEST: ${{ secrets.LINE_GROUP_TEST }}
