@@ -183,6 +183,7 @@ if __name__ == "__main__":
       
     msg = Self_Buy_Sell(df, res.json()['date'])
     LineNotify(os.getenv('LINE_USER_ID'), msg)
+    LineNotify(os.getenv('LINE_GROUP_TEST'), msg) 
 
 # 櫃買中心買賣超
 cDay = 0
@@ -216,3 +217,4 @@ if __name__ == "__main__":
 
   if res.json()['iTotalRecords']!='0':
     LineNotify(os.getenv('LINE_USER_ID'), msg) # 個人單獨的 Line Notify
+    LineNotify(os.getenv('LINE_GROUP_TEST'), msg) 
