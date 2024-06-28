@@ -60,3 +60,4 @@ if __name__ == "__main__":
         print(res.json()['fields'][j],":",format(int(res.json()['data'][i][j].replace(',',''))/100000000,'.2f'),"億")
         msg = msg + res.json()['fields'][j] + "：" + str(format(int(res.json()['data'][i][j].replace(',',''))/100000000,'.2f')) + " 億" + '\n'
     LineNotify(os.getenv('LINE_USER_ID'), msg)
+    LineNotify(os.getenv('LINE_GROUP_TEST'), msg) 
