@@ -160,7 +160,7 @@ df = df.rename(columns={'外陸資買賣超股數(不含外資自營商)':Text[0
 # Line Notify 練習
 if __name__ == "__main__":
   #從LINE Notify取得的權杖(token)
-  token = [os.getenv('LINE_USER_ID'), os.getenv('LINE_GROUP_TEST')]
+  token = [os.getenv('LINE_USER_ID'), os.getenv('LINE_GROUP_TEST'), os.getenv('LINE_GROUP_CCFU')]
 
   if res.json()['stat']=='OK':
 
@@ -182,8 +182,12 @@ if __name__ == "__main__":
         LineNotify(token_i, msg)
       
     msg = Self_Buy_Sell(df, res.json()['date'])
-    LineNotify(os.getenv('LINE_USER_ID'), msg)
-    LineNotify(os.getenv('LINE_GROUP_TEST'), msg) 
+    
+    # LineNotify(token, msg)
+    for token_i in token:
+        LineNotify(token_i, msg)
+    # LineNotify(os.getenv('LINE_USER_ID'), msg)
+    # LineNotify(os.getenv('LINE_GROUP_TEST'), msg) 
 
 # 櫃買中心買賣超
 cDay = 0
@@ -213,8 +217,11 @@ for i in res.json()['aaData']:
 # Line Notify 練習
 if __name__ == "__main__":
   #從LINE Notify取得的權杖(token)
-  token = [os.getenv('LINE_USER_ID')]
+  token = [os.getenv('LINE_USER_ID'), os.getenv('LINE_GROUP_TEST'), os.getenv('LINE_GROUP_CCFU')]
 
   if res.json()['iTotalRecords']!='0':
-    LineNotify(os.getenv('LINE_USER_ID'), msg) # 個人單獨的 Line Notify
-    LineNotify(os.getenv('LINE_GROUP_TEST'), msg) 
+      # LineNotify(token, msg)
+      for token_i in token:
+          LineNotify(token_i, msg)
+    # LineNotify(os.getenv('LINE_USER_ID'), msg) # 個人單獨的 Line Notify
+    # LineNotify(os.getenv('LINE_GROUP_TEST'), msg) 
