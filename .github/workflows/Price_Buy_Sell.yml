@@ -39,3 +39,4 @@ jobs:
       env:
         LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         LINE_GROUP_TEST: ${{ secrets.LINE_GROUP_TEST }}
+        LINE_GROUP_CCFU: ${{ secrets.LINE_GROUP_CCFU }}
