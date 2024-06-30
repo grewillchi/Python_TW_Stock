@@ -48,7 +48,7 @@ msg = res.json()['date'] + '\n集中市場買賣超金額'
 if __name__ == "__main__":
   # 從LINE Notify取得的權杖(token)
   # LINE_USER_ID 個人單獨的
-  token = [os.getenv('LINE_USER_ID')]
+  token = [os.getenv('LINE_USER_ID'),os.getenv('LINE_GROUP_TEST'),os.getenv('LINE_GROUP_CCFU')]
 
   if res.json()['stat']=='OK':
 
@@ -59,5 +59,8 @@ if __name__ == "__main__":
       for j in range(1,4):
         print(res.json()['fields'][j],":",format(int(res.json()['data'][i][j].replace(',',''))/100000000,'.2f'),"億")
         msg = msg + res.json()['fields'][j] + "：" + str(format(int(res.json()['data'][i][j].replace(',',''))/100000000,'.2f')) + " 億" + '\n'
-    LineNotify(os.getenv('LINE_USER_ID'), msg)
-    LineNotify(os.getenv('LINE_GROUP_TEST'), msg) 
+    for token_i in token:
+        LineNotify(token_i, msg)
+    # LineNotify(os.getenv('LINE_USER_ID'), msg)
+    # LineNotify(os.getenv('LINE_GROUP_TEST'), msg)
+    # LineNotify(os.getenv('LINE_GROUP_CCFU'), msg)
