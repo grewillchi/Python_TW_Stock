@@ -181,12 +181,12 @@ if __name__ == "__main__":
           LineNotify(token_i, msg)
 
     # 三大法人排序，篩選出外資&投信同買超、同賣超
-    for i in B:
-      msg = compare_Buy_Sell(df, i, Text[2], res.json()['date'], 0)
+    # for i in B:
+      # msg = compare_Buy_Sell(df, i, Text[2], res.json()['date'], 0)
 
       # LineNotify(token, msg)
-      for token_i in token:
-        LineNotify(token_i, msg)
+      # for token_i in token:
+        # LineNotify(token_i, msg)
       
     msg = Self_Buy_Sell(df, res.json()['date'])
     
@@ -194,7 +194,7 @@ if __name__ == "__main__":
     for token_i in token:
         LineNotify(token_i, msg)
     # LineNotify(os.getenv('LINE_USER_ID'), msg)
-    # LineNotify(os.getenv('LINE_GROUP_TEST'), msg) 
+    # LineNotify(os.getenv('LINE_GROUP_TEST'), msg)
 
 # 櫃買中心買賣超
 cDay = 0
