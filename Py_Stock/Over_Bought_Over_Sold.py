@@ -2,6 +2,7 @@
 import requests
 import json
 import os
+import random
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
@@ -117,6 +118,30 @@ def LineNotify(token, msg):
     # image = {'imageFile': file}
     r = requests.post("https://notify-api.line.me/api/notify", headers=headers, params=params)#, files = image)
 
+def chat(chanel_list, authorization_list, msg):
+    for authorization in authorization_list:
+        header = {
+            "Authorization": authorization,
+            "Content-Type": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
+        }
+        for chanel_id in chanel_list:
+            msg = {
+                # "content": get_context(),
+                "content": msg,
+                "nonce": "82329451214{}33232234".format(random.randrange(0, 1000)),
+                "tts": False,
+            }
+            url = "https://discord.com/api/v9/channels/{}/messages".format(chanel_id)
+            try:
+                res = requests.post(url=url, headers=header, data=json.dumps(msg))
+                # print(res.content)
+            except:
+                pass
+            continue
+        # time.sleep(random.randrange(1, 3))
+
+# ====================================================================================================
 cDay = 0
 
 # 爬取三大法人買賣超資訊
@@ -189,6 +214,10 @@ if __name__ == "__main__":
         # LineNotify(token_i, msg)
       
     msg = Self_Buy_Sell(df, res.json()['date'])
+
+    # Discord
+    # chat(chanel_list,authorization_list)
+    chat(os.getenv('DISCORD_CHANEL_LIST_STOCK'), os.getenv('DISCORD_TOKEN'), msg)
     
     # LineNotify(token, msg)
     for token_i in token:
@@ -227,6 +256,11 @@ if __name__ == "__main__":
   token = [os.getenv('LINE_USER_ID'), os.getenv('LINE_GROUP_TEST'), os.getenv('LINE_GROUP_CCFU')]
 
   if res.json()['iTotalRecords']!='0':
+
+      # Discord
+      # chat(chanel_list,authorization_list)
+      chat(os.getenv('DISCORD_CHANEL_LIST_STOCK'), os.getenv('DISCORD_TOKEN'), msg)
+      
       # LineNotify(token, msg)
       for token_i in token:
           LineNotify(token_i, msg)
