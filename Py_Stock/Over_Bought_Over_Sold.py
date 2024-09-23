@@ -118,7 +118,7 @@ def LineNotify(token, msg):
     # image = {'imageFile': file}
     r = requests.post("https://notify-api.line.me/api/notify", headers=headers, params=params)#, files = image)
 
-def chat(chanel_list, authorization_list, msg):
+def chat(chanel_list, authorization_list, msgstock):
     for authorization in authorization_list:
         header = {
             "Authorization": authorization,
@@ -128,8 +128,8 @@ def chat(chanel_list, authorization_list, msg):
         for chanel_id in chanel_list:
             msg = {
                 # "content": get_context(),
-                "content": msg,
-                "nonce": "82329451214{}33232234".format(random.randrange(0, 1000)),
+                "content": msgstock,
+                # "nonce": "82329451214{}33232234".format(random.randrange(0, 1000)),
                 "tts": False,
             }
             url = "https://discord.com/api/v9/channels/{}/messages".format(chanel_id)
