@@ -1,6 +1,5 @@
 beautifulsoup4
 requests
-random
 pandas
 datetime
 line-bot-sdk
