@@ -217,7 +217,7 @@ if __name__ == "__main__":
 
     # Discord
     # chat(chanel_list,authorization_list)
-    chat(os.getenv('DISCORD_CHANEL_LIST_STOCK'), os.getenv('DISCORD_TOKEN'), msg)
+    # chat(os.getenv('DISCORD_CHANEL_LIST_STOCK'), os.getenv('DISCORD_TOKEN'), msg)
     
     # LineNotify(token, msg)
     for token_i in token:
@@ -259,7 +259,7 @@ if __name__ == "__main__":
 
       # Discord
       # chat(chanel_list,authorization_list)
-      chat(os.getenv('DISCORD_CHANEL_LIST_STOCK'), os.getenv('DISCORD_TOKEN'), msg)
+      # chat(os.getenv('DISCORD_CHANEL_LIST_STOCK'), os.getenv('DISCORD_TOKEN'), msg)
       
       # LineNotify(token, msg)
       for token_i in token:
