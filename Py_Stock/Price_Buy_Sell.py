@@ -59,9 +59,7 @@ def chat(chanel_list, authorization_list, msg_stock):
                     print(f"Message sent to channel {chanel_id} successfully.")
             except Exception as e:
                 print(f"Error occurred: {e}")
-                
-            continue
-                # pass
+            pass
         # time.sleep(random.randrange(1, 3))
 
 # ====================================================================================================
