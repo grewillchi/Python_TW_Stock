@@ -88,7 +88,7 @@ if __name__ == "__main__":
     for token_i in token:
         LineNotify(token_i, msg)
     
-    chanel(os.getenv('DISCORD_CHANEL_LIST_STOCK'), os.getenv('DISCORD_TOKEN'), msg)
+    chat(os.getenv('DISCORD_CHANEL_LIST_STOCK'), os.getenv('DISCORD_TOKEN'), msg)
     # LineNotify(os.getenv('LINE_USER_ID'), msg)
     # LineNotify(os.getenv('LINE_GROUP_TEST'), msg)
     # LineNotify(os.getenv('LINE_GROUP_CCFU'), msg)
