@@ -28,7 +28,7 @@ def LineNotify(token, msg):
     # image = {'imageFile': file}
     r = requests.post("https://notify-api.line.me/api/notify", headers=headers, params=params)#, files = image)
 
-def chat(chanel_list, authorization_list, msgstock, msg_stock):
+def chat(chanel_list, authorization_list, msg_stock):
     for authorization in authorization_list:
         header = {
             "Authorization": authorization,
