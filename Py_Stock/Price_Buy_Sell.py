@@ -44,10 +44,18 @@ def chat(chanel_list, authorization_list, msg_stock):
             }
             url = "https://discord.com/api/v10/channels/{}/messages".format(chanel_id)
             try:
-                res = requests.post(url=url, headers=header, data=json.dumps(msg))
+                # res = requests.post(url=url, headers=header, data=json.dumps(msg))
                 # print(res.content)
-            except:
-                pass
+                res = requests.post(url=url, headers=header, json=msg)  # 使用 json 參數
+                print(f"Response: {res.status_code}, {res.content}")
+                if res.status_code != 200 and res.status_code != 204:
+                    print(f"Failed to send message to channel {chanel_id}, response: {res.content}")
+                else:
+                    print(f"Message sent to channel {chanel_id} successfully.")
+            except Exception as e:
+                print(f"Error occurred: {e}")
+                continue
+                # pass
             continue
         # time.sleep(random.randrange(1, 3))
 
