@@ -31,7 +31,7 @@ def LineNotify(token, msg):
 def chat(chanel_list, authorization_list, msg_stock):
     for authorization in authorization_list:
         header = {
-            "Authorization": authorization,
+            "Authorization": f"Bot authorization",
             "Content-Type": "application/json",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
         }
