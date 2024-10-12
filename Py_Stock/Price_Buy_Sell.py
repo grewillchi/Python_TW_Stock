@@ -38,7 +38,7 @@ def chat(chanel_list, authorization_list, msgstock, msg_stock):
         for chanel_id in chanel_list:
             msg = {
                 # "content": get_context(),
-                "content": msgstock,
+                "content": msg_stock,
                 # "nonce": "82329451214{}33232234".format(random.randrange(0, 1000)),
                 "tts": False,
             }
