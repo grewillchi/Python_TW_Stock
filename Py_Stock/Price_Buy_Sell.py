@@ -42,7 +42,7 @@ def chat(chanel_list, authorization_list, msg_stock):
                 # "nonce": "82329451214{}33232234".format(random.randrange(0, 1000)),
                 "tts": False,
             }
-            url = "https://discord.com/api/v9/channels/{}/messages".format(chanel_id)
+            url = "https://discord.com/api/v10/channels/{}/messages".format(chanel_id)
             try:
                 res = requests.post(url=url, headers=header, data=json.dumps(msg))
                 # print(res.content)
