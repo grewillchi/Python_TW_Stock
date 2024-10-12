@@ -3,7 +3,7 @@
 import os
 import requests
 import json
-import time
+# import time
 import datetime
 from linebot.models import TextSendMessage
 from linebot import (
