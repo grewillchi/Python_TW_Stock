@@ -76,7 +76,7 @@ if __name__ == "__main__":
   # LINE_USER_ID 個人單獨的
   token = [os.getenv('LINE_USER_ID'),os.getenv('LINE_GROUP_TEST'),os.getenv('LINE_GROUP_CCFU')]
 
-  Discord_List = [ os.getenv('DISCORD_CHANEL_LIST_STOCK') ]
+  Discord_list = [ os.getenv('DISCORD_CHANEL_LIST_STOCK') ]
   Discord_token = [ os.getenv('DISCORD_TOKEN') ]
     
   if res.json()['stat']=='OK':
