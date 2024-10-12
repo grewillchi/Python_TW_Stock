@@ -40,3 +40,5 @@ jobs:
         LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         LINE_GROUP_TEST: ${{ secrets.LINE_GROUP_TEST }}
         LINE_GROUP_CCFU: ${{ secrets.LINE_GROUP_CCFU }}
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        DISCORD_CHANEL_LIST_STOCK: ${{ secrets.DISCORD_CHANEL_LIST_STOCK }}
