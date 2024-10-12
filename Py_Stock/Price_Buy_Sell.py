@@ -76,6 +76,9 @@ if __name__ == "__main__":
   # LINE_USER_ID 個人單獨的
   token = [os.getenv('LINE_USER_ID'),os.getenv('LINE_GROUP_TEST'),os.getenv('LINE_GROUP_CCFU')]
 
+  Discord_List = [ os.getenv('DISCORD_CHANEL_LIST_STOCK') ]
+  Discord_token = [ os.getenv('DISCORD_TOKEN') ]
+    
   if res.json()['stat']=='OK':
 
     # 外資、投信、三大法人買賣超
@@ -87,8 +90,11 @@ if __name__ == "__main__":
         msg = msg + res.json()['fields'][j] + "：" + str(format(int(res.json()['data'][i][j].replace(',',''))/100000000,'.2f')) + " 億" + '\n'
     for token_i in token:
         LineNotify(token_i, msg)
+
+    for tokenD in Discord_token:
+        for listD in Discord_list:
+            chat( listD, tokenD , msg)
     
-    chat(os.getenv('DISCORD_CHANEL_LIST_STOCK'), os.getenv('DISCORD_TOKEN'), msg)
     # LineNotify(os.getenv('LINE_USER_ID'), msg)
     # LineNotify(os.getenv('LINE_GROUP_TEST'), msg)
     # LineNotify(os.getenv('LINE_GROUP_CCFU'), msg)
