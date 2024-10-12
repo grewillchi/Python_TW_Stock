@@ -1,7 +1,6 @@
 beautifulsoup4
 requests
 pandas
-time
 datetime
 line-bot-sdk
 aiohttp==3.9.0b0
