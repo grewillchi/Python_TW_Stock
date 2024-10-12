@@ -3,6 +3,7 @@
 import os
 import requests
 import json
+import time
 import datetime
 from linebot.models import TextSendMessage
 from linebot import (
@@ -26,6 +27,31 @@ def LineNotify(token, msg):
     }
     # image = {'imageFile': file}
     r = requests.post("https://notify-api.line.me/api/notify", headers=headers, params=params)#, files = image)
+
+def chat(chanel_list, authorization_list, msgstock, msg_stock):
+    for authorization in authorization_list:
+        header = {
+            "Authorization": authorization,
+            "Content-Type": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
+        }
+        for chanel_id in chanel_list:
+            msg = {
+                # "content": get_context(),
+                "content": msgstock,
+                # "nonce": "82329451214{}33232234".format(random.randrange(0, 1000)),
+                "tts": False,
+            }
+            url = "https://discord.com/api/v9/channels/{}/messages".format(chanel_id)
+            try:
+                res = requests.post(url=url, headers=header, data=json.dumps(msg))
+                # print(res.content)
+            except:
+                pass
+            continue
+        # time.sleep(random.randrange(1, 3))
+
+# ====================================================================================================
 
 cDay = 0
 
@@ -61,6 +87,8 @@ if __name__ == "__main__":
         msg = msg + res.json()['fields'][j] + "：" + str(format(int(res.json()['data'][i][j].replace(',',''))/100000000,'.2f')) + " 億" + '\n'
     for token_i in token:
         LineNotify(token_i, msg)
+    
+    chanel_list(os.getenv('DISCORD_CHANEL_LIST_STOCK'), os.getenv('DISCORD_TOKEN'), msg)
     # LineNotify(os.getenv('LINE_USER_ID'), msg)
     # LineNotify(os.getenv('LINE_GROUP_TEST'), msg)
     # LineNotify(os.getenv('LINE_GROUP_CCFU'), msg)
