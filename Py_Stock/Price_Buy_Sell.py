@@ -103,9 +103,9 @@ if __name__ == "__main__":
     for token_i in token:
         LineNotify(token_i, msg)
 
-    for tokenD in Discord_token:
-        for listD in Discord_list:
-            chat( listD, tokenD , msg)
+    # for tokenD in Discord_token:
+    #     for listD in Discord_list:
+    #         chat( listD, tokenD , msg)
     
     # LineNotify(os.getenv('LINE_USER_ID'), msg)
     # LineNotify(os.getenv('LINE_GROUP_TEST'), msg)
