@@ -111,6 +111,7 @@ if __name__ == "__main__":
     for token_i in token:
         LineNotify(token_i, msg)
 
+    send_message_to_telegram(msg)
     # for tokenD in Discord_token:
     #     for listD in Discord_list:
     #         chat( listD, tokenD , msg)
