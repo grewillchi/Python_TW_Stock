@@ -44,3 +44,4 @@ jobs:
         DISCORD_CHANEL_LIST_STOCK: ${{ secrets.DISCORD_CHANEL_LIST_STOCK }}
         TG_MYBOT_TOKEN: ${{ secrets.TG_MYBOT_TOKEN }}
         TG_MYCHATID: ${{ secrets.TG_MYCHATID }}
+        TG_TWOCHATID: ${{ secrets.TG_TWOCHATID }}
