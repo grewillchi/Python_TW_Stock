@@ -5,6 +5,7 @@ import requests
 import json
 # import time
 import datetime
+import telebot
 from linebot.models import TextSendMessage
 from linebot import (
     LineBotApi, WebhookHandler
@@ -27,6 +28,13 @@ def LineNotify(token, msg):
     }
     # image = {'imageFile': file}
     r = requests.post("https://notify-api.line.me/api/notify", headers=headers, params=params)#, files = image)
+
+def send_message_to_telegram(message):
+    API_TOKEN = os.getenv('TG_MYBOT_TOKEN')
+    chat_id = os.getenv('TG_MYCHATID')
+    
+    bot = telebot.TeleBot(API_TOKEN)
+    bot.send_message(chat_id, message)
 
 def chat(chanel_list, authorization_list, msg_stock):
     for authorization in authorization_list:
