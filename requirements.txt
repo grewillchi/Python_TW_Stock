@@ -4,3 +4,4 @@ pandas
 datetime
 line-bot-sdk
 aiohttp==3.9.0b0
+telebot
