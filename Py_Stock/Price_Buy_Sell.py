@@ -31,10 +31,10 @@ def LineNotify(token, msg):
 
 def send_message_to_telegram(message):
     API_TOKEN = os.getenv('TG_MYBOT_TOKEN')
-    chat_id = [os.getenv('TG_MYCHATID'), os.getenv('TG_TWOCHATID')]
+    all_id = [os.getenv('TG_MYCHATID'), os.getenv('TG_TWOCHATID')]
     
     bot = telebot.TeleBot(API_TOKEN)
-    for id in chat_id:
+    for chat_id in all_id:
         bot.send_message(chat_id, message)
 
 def chat(chanel_list, authorization_list, msg_stock):
