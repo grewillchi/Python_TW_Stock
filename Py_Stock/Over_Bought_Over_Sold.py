@@ -6,6 +6,7 @@ import os
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
+import telebot
 from linebot.models import TextSendMessage
 from linebot import (
     LineBotApi, WebhookHandler
