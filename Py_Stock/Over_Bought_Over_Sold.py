@@ -118,6 +118,14 @@ def LineNotify(token, msg):
     # image = {'imageFile': file}
     r = requests.post("https://notify-api.line.me/api/notify", headers=headers, params=params)#, files = image)
 
+def send_message_to_telegram(message):
+    API_TOKEN = os.getenv('TG_MYBOT_TOKEN')
+    all_id = [os.getenv('TG_TWOCHATID')]#, os.getenv('TG_MYCHATID')]
+    
+    bot = telebot.TeleBot(API_TOKEN)
+    for chat_id in all_id:
+        bot.send_message(chat_id, message)
+
 def chat(chanel_list, authorization_list, msgstock):
     for authorization in authorization_list:
         header = {
@@ -205,6 +213,8 @@ if __name__ == "__main__":
         for token_i in token:
           LineNotify(token_i, msg)
 
+        send_message_to_telegram(msg)
+      
     # 三大法人排序，篩選出外資&投信同買超、同賣超
     # for i in B:
       # msg = compare_Buy_Sell(df, i, Text[2], res.json()['date'], 0)
@@ -222,6 +232,8 @@ if __name__ == "__main__":
     # LineNotify(token, msg)
     for token_i in token:
         LineNotify(token_i, msg)
+        
+    send_message_to_telegram(msg)
     # LineNotify(os.getenv('LINE_USER_ID'), msg)
     # LineNotify(os.getenv('LINE_GROUP_TEST'), msg)
 
@@ -264,5 +276,7 @@ if __name__ == "__main__":
       # LineNotify(token, msg)
       for token_i in token:
           LineNotify(token_i, msg)
+
+      send_message_to_telegram(msg)
     # LineNotify(os.getenv('LINE_USER_ID'), msg) # 個人單獨的 Line Notify
     # LineNotify(os.getenv('LINE_GROUP_TEST'), msg) 
