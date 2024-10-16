@@ -95,7 +95,8 @@ msg = res.json()['date'] + '\n集中市場買賣超金額'
 if __name__ == "__main__":
   # 從LINE Notify取得的權杖(token)
   # LINE_USER_ID 個人單獨的
-  token = [os.getenv('LINE_USER_ID'),os.getenv('LINE_GROUP_TEST'),os.getenv('LINE_GROUP_CCFU')]
+  # token = [os.getenv('LINE_USER_ID'),os.getenv('LINE_GROUP_TEST'),os.getenv('LINE_GROUP_CCFU')]
+  token = [os.getenv('LINE_GROUP_CCFU')]
 
   Discord_list = [ os.getenv('DISCORD_CHANEL_LIST_STOCK') ]
   Discord_token = [ os.getenv('DISCORD_TOKEN') ]
