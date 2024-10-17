@@ -202,7 +202,7 @@ df = df.rename(columns={'外陸資買賣超股數(不含外資自營商)':Text[0
 if __name__ == "__main__":
   #從LINE Notify取得的權杖(token)
   # token = [os.getenv('LINE_USER_ID'), os.getenv('LINE_GROUP_TEST'), os.getenv('LINE_GROUP_CCFU')]
-  token = [os.getenv('LINE_GROUP_CCFU')]
+  token = [os.getenv('LINE_GROUP_TEST'),os.getenv('LINE_GROUP_CCFU')]
 
   if res.json()['stat']=='OK':
 
@@ -268,7 +268,7 @@ for i in res.json()['aaData']:
 if __name__ == "__main__":
   #從LINE Notify取得的權杖(token)
   # token = [os.getenv('LINE_USER_ID'), os.getenv('LINE_GROUP_TEST'), os.getenv('LINE_GROUP_CCFU')]
-  token = [os.getenv('LINE_GROUP_CCFU')]
+  token = [os.getenv('LINE_GROUP_TEST'), os.getenv('LINE_GROUP_CCFU')]
 
   if res.json()['iTotalRecords']!='0':
 
