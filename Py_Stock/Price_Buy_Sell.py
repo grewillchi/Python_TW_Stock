@@ -31,7 +31,8 @@ def LineNotify(token, msg):
 
 def send_message_to_telegram(message):
     API_TOKEN = os.getenv('TG_MYBOT_TOKEN')
-    all_id = [os.getenv('TG_MYCHATID'), os.getenv('TG_TWOCHATID')]
+    # all_id = [os.getenv('TG_MYCHATID'), os.getenv('TG_TWOCHATID')]
+    all_id = [os.getenv('TG_TWOCHATID')]
     
     bot = telebot.TeleBot(API_TOKEN)
     for chat_id in all_id:
