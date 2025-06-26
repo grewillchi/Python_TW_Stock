@@ -85,7 +85,8 @@ res = requests.get(url, headers = header)
 while(res.json()['stat']=='很抱歉，沒有符合條件的資料!'):
 # while(res.json()['stat']!='OK'):
   cDay -= 1
-  url = 'https://www.twse.com.tw/rwd/zh/fund/BFI82U?type=day&dayDate=' + (datetime.datetime.today()+datetime.timedelta(days=cDay)).strftime('%Y%m%d')
+    url = 'https://www.twse.com.tw/rwd/zh/fund/BFI82U?response=json'
+  # url = 'https://www.twse.com.tw/rwd/zh/fund/BFI82U?type=day&dayDate=' + (datetime.datetime.today()+datetime.timedelta(days=cDay)).strftime('%Y%m%d')
   res = requests.get(url, headers = header)
 
 res.json()['stat']
